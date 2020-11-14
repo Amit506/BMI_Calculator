@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 const kactiveContainerColor =
-    Color(0xFF1D1E33); //intiliazing color of widgetcontainer in active state
+    Color(0xFF1D1E33);                              //intiliazing color of widgetcontainer in active state
 const kinactiveContainerColor =
-    Color(0xFF0A0E21); //intiliazing color of widgetcontainer in inactive state
-const ktextStyle = TextStyle(
+    Color(0xFF0A0E21);                                 //intiliazing color of widgetcontainer in inactive state
+                                           
+ // different types of TextStyles used in project 
+const ktextStyle = TextStyle(                 
   color: Colors.white,
   fontSize: 15.0,
 );

@@ -1,5 +1,8 @@
 import 'dart:math';
 
+
+// method for calculatiing BMI and returning result
+
 class CalculateMethod {
   CalculateMethod({this.height, this.weight});
 
@@ -14,7 +17,7 @@ class CalculateMethod {
   String bmiState() {
     double _bmi = weight / pow(height / 100, 2);
     if (_bmi < 18.5) {
-      return 'Overweight';
+      return 'Underweight';
     } else if (_bmi >= 25) {
       return 'Overweight';
     } else {

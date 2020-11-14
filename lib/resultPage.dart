@@ -3,6 +3,10 @@ import 'package:bmi_calculator/constant.dart';
 import 'package:flutter/material.dart';
 import 'widgetcontainer.dart';
 
+
+
+//second route having results of calculation
+
 class ResultPage extends StatelessWidget {
   final String bmiResult;
   final String bmiState;
@@ -44,7 +48,7 @@ class ResultPage extends StatelessWidget {
               ),
             ),
           ),
-          CalculateButton(
+          CalculateButton(                            // button for going back to previous route
             bottomText: 'CALCULATE  AGAIN ',
             onTap: () {
               Navigator.pop(context);

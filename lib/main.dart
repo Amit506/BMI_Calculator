@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:bmi_calculator/calculateMethod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'roundButton.dart';
@@ -19,9 +18,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BMI calculatior',
       theme: new ThemeData.dark().copyWith(
-        // giving a custom theme
-        primaryColor: Color(0xFF0A0E21), // background color of appbar
-        scaffoldBackgroundColor: Color(0xFF0A0E21), //background color of body
+                                                        // giving a custom theme
+        primaryColor: Color(0xFF0A0E21),                  // background color of appbar
+        scaffoldBackgroundColor: Color(0xFF0A0E21),             //background color of body
       ),
       home: MainPage(),
     );
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
 }
 
 enum Gender {
-  //defing enum
+                        //defining enum 
   male,
   female,
 }
@@ -40,18 +39,18 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int height = 140; //variable controlling the height
-  int weight = 50; //variable controlling the weight
-  int age = 20; //variable controlling the age
+  int height = 140;              //variable controlling the height
+  int weight = 50;                  //variable controlling the weight
+  int age = 20;                             //variable controlling the age
 
-//
+
   Color maleContainerColor =
-      kinactiveContainerColor; // intializing color of male gesturebutton
+      kinactiveContainerColor;                          // intializing color of male gesturebutton
   Color femaleContainerColor =
-      kinactiveContainerColor; //intializing color of female gesturebutton
-  void activenessDetector(Gender gender) {
+      kinactiveContainerColor;                            //intializing color of female gesturebutton
+  void activenessDetector(Gender gender) {      //necessary function to change gesturebutton of male and female to active or inactive state
     setState(() {
-      //necessary function to change gesturebutton to active or inactive state
+                               
 
       if (gender == Gender.male) {
         if (maleContainerColor == kinactiveContainerColor) {
@@ -76,30 +75,30 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        centerTitle: true,
+        centerTitle: true,                // for getting title of textbar on centre
         title: Text(
           'BMI Calculator',
-        ), // title of appbar
+        ), 
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment
-            .stretch, // streching all elements in column widget
+            .stretch,                                 // streching all elements  in column widget from crossaxis
         children: [
-          Expanded(
-            // taking all area available in screem
-            child: Row(
+          Expanded(                           // 1st row having male and female container
+                                               
+            child: Row(                        
               children: [
-                Expanded(
+                Expanded(                              // male container
                   child: WidgetContainer(
-                    // defing another function for customizing male and female container
-                    onpressed: () {
+                                               // defining another function for customizing male container
+                     onpressed: () {
                       activenessDetector(Gender
-                          .male); // giving info to gesture detector that it is male container
+                          .male);                    // giving info to gesture detector that it is male container
                     },
-                    colour: maleContainerColor,
+                    colour: maleContainerColor,            //initializing default male container color
                     containerChild: Column(
                       mainAxisAlignment: MainAxisAlignment
-                          .center, //to keep all elemnts on center
+                          .center,                              //to keep all elemnts on center
                       children: [
                         Icon(
                           FontAwesomeIcons.male,
@@ -116,13 +115,13 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                 ),
-                Expanded(
+                Expanded(                             // female container
                   child: WidgetContainer(
                     onpressed: () {
                       activenessDetector(Gender
-                          .female); // giving info to gesture detector that it is female container
+                          .female);                    // giving info to gesture detector that it is female container
                     },
-                    colour: femaleContainerColor,
+                    colour: femaleContainerColor,                 //initializing default female container color
                     containerChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -144,10 +143,10 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
           ),
-          Expanded(
-            // starting of slide button
-            child: WidgetContainer(
-              //using  widgetContainer
+          Expanded(                         // 2nd having height and slider
+                                      
+            child: WidgetContainer(                    // giving  widget as widgetcontainer
+                                                               
               colour: Color(0xFF1D1E33),
               containerChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -158,8 +157,8 @@ class _MainPageState extends State<MainPage> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
-                    textBaseline: TextBaseline.alphabetic,
+                    crossAxisAlignment: CrossAxisAlignment.baseline,     // to get elements of row on the baseline 
+                    textBaseline: TextBaseline.alphabetic,              
                     children: [
                       Text(
                         height.toString(),
@@ -171,13 +170,13 @@ class _MainPageState extends State<MainPage> {
                       ),
                     ],
                   ),
-                  SliderTheme(
-                    // using slider widget
-                    data: SliderTheme.of(context).copyWith(
-                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 9),
-                      overlayShape: RoundSliderOverlayShape(overlayRadius: 20),
+                  SliderTheme(                                                // using slider widget
+                                                              
+                    data: SliderTheme.of(context).copyWith(                         //using defined slider by us with little changes in slider theme 
+                      thumbShape: RoundSliderThumbShape(enabledThumbRadius: 9),          
+                      overlayShape: RoundSliderOverlayShape(overlayRadius: 20),          
                     ),
-                    child: Slider(
+                    child: Slider(                  // slider properties
                       value: height.toDouble(),
                       min: 100.0,
                       max: 200.0,
@@ -194,8 +193,8 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ),
-          Expanded(
-            // 3rd row having weight and age container
+          Expanded(                // 3rd row having weight and age container
+                                           
             child: Row(
               children: [
                 Expanded(
@@ -214,9 +213,9 @@ class _MainPageState extends State<MainPage> {
                           children: [
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
-                              onPressed: () {
+                              onPressed: () {                      //changing the weight ontapping
                                 setState(() {
-                                  weight++;
+                                  weight++;                  
                                 });
                               },
                             ),
@@ -225,7 +224,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                             RoundIconButton(
                               icon: FontAwesomeIcons.minus,
-                              onPressed: () {
+                              onPressed: () {                                   //changing the weight ontapping
                                 setState(() {
                                   weight--;
                                 });
@@ -253,7 +252,7 @@ class _MainPageState extends State<MainPage> {
                           children: [
                             RoundIconButton(
                               icon: FontAwesomeIcons.plus,
-                              onPressed: () {
+                              onPressed: () {                                    //changing the height ontapping
                                 setState(() {
                                   age++;
                                 });
@@ -264,7 +263,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                             RoundIconButton(
                                 icon: FontAwesomeIcons.minus,
-                                onPressed: () {
+                                onPressed: () {                                     //changing the height ontapping
                                   setState(() {
                                     age--;
                                   });
@@ -278,7 +277,7 @@ class _MainPageState extends State<MainPage> {
               ],
             ),
           ),
-          CalculateButton(
+          CalculateButton(                  // last widget having route to result page and necesary function to perform bmi calculation
             bottomText: 'CALCULATE',
             onTap: () {
               CalculateMethod calculate =
